@@ -96,7 +96,9 @@ main{
 .qty > p{
       font-size: 25px;
       cursor: pointer;
+      user-select: none;
 }
-.qty >p:nth-child(3){
+.qty >p:nth-child(1){
       margin-bottom: 4px;
+      user-select: none;
 }
