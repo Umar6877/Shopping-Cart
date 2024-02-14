@@ -34,7 +34,7 @@ let generateShop = ()=>{
 			<h3>$ ${price}</h3>
 			<div class="qty">
 			<p onclick="decrement(${id})">-</p>
-			<input type="text" value="0" name="number" id="${id}" readonly>
+			<input type="text" value="0" name="number" id="${id}"  readonly>
 			<p onclick="increment(${id})">+</p>
 			</div>
 		</div>
@@ -44,20 +44,20 @@ let generateShop = ()=>{
 	}).join("");
 };
 generateShop();
-let basket = []
-console.log(basket);
+let basket = [];
 let increment = (id)=>{
 	let selectItem = id;
-      basket.push({
-		id:selectItem.id,
-		item:1,
-	})
+	let search = basket.find((x)=> x.id === selectItem.id);
+	if (search === undefined) {
+		basket.push({
+			id: selectItem.id,
+			item: 1,
+		})
+	}else{
+		search.item += 1;
+	}
 	console.log(basket);
+
 };
-let decrement = (id)=>{
-	let selectItem = id;
-	console.log(selectItem.id)
-};
+let decrement = ()=>{};
 let update = ()=>{};
-
-
