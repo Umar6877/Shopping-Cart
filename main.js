@@ -1,4 +1,5 @@
 let shop = document.getElementById('shop');
+let input = document.getElementsByClassName('input');
 let shopData = [
 	{     id: "sdsdsd",
 		src: 'images/img-1.jpg',
@@ -34,7 +35,7 @@ let generateShop = ()=>{
 			<h3>$ ${price}</h3>
 			<div class="qty">
 			<p onclick="decrement(${id})">-</p>
-			<input type="text" value="0" name="number" id="${id}"  readonly>
+			<input class="input" type="text" value="0" name="number" id="${id}"  readonly>
 			<p onclick="increment(${id})">+</p>
 			</div>
 		</div>
@@ -56,8 +57,22 @@ let increment = (id)=>{
 	}else{
 		search.item += 1;
 	}
-	console.log(basket);
-
+	// console.log(basket);
+	update(selectItem.id)
 };
-let decrement = ()=>{};
-let update = ()=>{};
+let decrement = (id)=>{
+	let selectItem = id;
+	let search = basket.find((x)=> x.id === selectItem.id);
+	if (search.item === 0) return 
+	else{
+		search.item -= 1
+	}
+	// console.log(basket);
+	update(selectItem.id)
+};
+let update = (id)=>{
+	let search = basket.find((x)=> x.id === id)
+	console.log(search.item);
+	console.log(search.id);
+
+}; 
