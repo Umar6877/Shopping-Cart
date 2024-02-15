@@ -1,5 +1,6 @@
 let shop = document.getElementById('shop');
 let input = document.getElementsByClassName('input');
+let cartAmount = document.getElementById('cartAmount');
 let shopData = [
 	{     id: "sdsdsd",
 		src: 'images/img-1.jpg',
@@ -71,4 +72,13 @@ let decrement = (id)=>{
 let update = (id)=>{
 	let search = basket.find((x)=> x.id === id)
 	document.getElementById(id).innerHTML = search.item;
+      calculation();
 }; 
+
+let calculation = ()=>{
+      let cartAmount = document.getElementById('cartAmount');
+      cartAmount.innerHTML = (basket.map((x)=> x.item).reduce((x,y)=> x+y,0));
+}
+if (cartAmount.innerText >= 1000) {
+      cartAmount.innerHTML = "1K+"
+}

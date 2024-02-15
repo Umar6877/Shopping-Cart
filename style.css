@@ -33,8 +33,6 @@ body{
       cursor: pointer;
 }
 .cart > div{
-      min-width: 30px;
-      min-height: 30px;
       background-color: red;
       color: #fff;
       border-radius: 5px;
@@ -45,7 +43,7 @@ body{
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0px 18px;
+      padding: 3px 8px;
 }
 main{
       display: flex;
