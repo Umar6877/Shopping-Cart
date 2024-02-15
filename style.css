@@ -31,6 +31,7 @@ body{
       justify-content: left;
       align-items: center;
       cursor: pointer;
+      user-select: none;
 }
 .cart > div{
       background-color: red;

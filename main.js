@@ -23,30 +23,36 @@ let shopData = [
 		description:'Lorem, ipsum dolor sit amet <br> consectetur adipisicing elit.',
 		price:'300',},
 	]
+let basket = JSON.parse(localStorage.getItem("data")) || []
+let d = JSON.parse(localStorage.getItem("data"));
 let generateShop = ()=>{
 	return shop.innerHTML= shopData.map((x)=>{
-	let {id,src,name,description,price}= x
-	return(`
+	let {id,src,name,description,price}= x;
+      let search = basket.find((x)=> x.id === id);
+	console.log(search);
+	return`
 	<div id="" class="product">
             <img src="${src}" alt="">
             <div class="detail">
                 <h3>${name}</h3>
-                <p>Lorem, ipsum dolor sit amet <br> consectetur adipisicing elit.</p>
+                <p>${description}</p>
                 <div class="price-qty">
                     <h3>$ ${price}</h3>
                     <div class="qty">
                         <i onclick="decrement(${id})" class="bi bi-dash"></i>
-                        <div id="${id}" class="items">0</div>
-                       <i onclick="increment(${id})" class="bi bi-plus"></i>
+                        <div id="${id}" class="items">
+				
+                        </div>
+                        <i onclick="increment(${id})" class="bi bi-plus"></i>
                     </div>
                 </div>
             </div>
         </div>
-	`)
+	`
 	}).join("");
 };
 generateShop();
-let basket = [];
+      
 let increment = (id)=>{
 	let selectItem = id;
 	let search = basket.find((x)=> x.id === selectItem.id);
@@ -59,6 +65,7 @@ let increment = (id)=>{
 		search.item += 1;
 	}
 	update(selectItem.id)
+
 };
 let decrement = (id)=>{
 	let selectItem = id;
@@ -73,6 +80,7 @@ let update = (id)=>{
 	let search = basket.find((x)=> x.id === id)
 	document.getElementById(id).innerHTML = search.item;
       calculation();
+      localStorage.setItem("data", JSON.stringify(basket))
 }; 
 
 let calculation = ()=>{
