@@ -77,28 +77,25 @@ main{
       justify-content: space-between;
       margin-top: 10px;
 }
-.price-qty input{
-      width: 25px;
-      height: 25px;
-      padding-left: 5px;
-      outline: none;
-      border: none;
+.price-qty div{
       font-size: 17px;
-
 }
 .qty{
+      width: 50px;
       display: flex;
-      flex-direction: row;
       justify-content: center;
-      align-items:center;
-      gap: 5px;
+      align-items: center;
 }
-.qty > p{
-      font-size: 25px;
+.qty > i {
+      padding: 5px;
       cursor: pointer;
       user-select: none;
 }
-.qty >p:nth-child(1){
-      margin-bottom: 4px;
+.items{
+      width: 25px;
+      max-width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       user-select: none;
 }
