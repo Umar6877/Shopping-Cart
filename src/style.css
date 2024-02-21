@@ -182,3 +182,58 @@ main{
       padding-left: 20px;
 
 }
+
+/* // ankdsnfdnfk?nsdkfnskdnf */
+#main{
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header {
+    width: 33vw;
+    padding: 20px 5px;
+    background-color: black;
+    color: #fff;
+    margin-bottom: 20px;
+}
+header >a{
+    text-decoration: none;
+}
+.heading{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    user-select: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+section,footer{
+    padding: 20px 300px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 2px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.total {
+    text-align: right;
+}
+.Back-to-home{
+      position: absolute;
+      top: 38px;
+      left: 50px;
+}

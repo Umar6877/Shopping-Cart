@@ -102,7 +102,7 @@ let totalAmount = ()=>{
             }).reduce((x,y)=> x+y)
             label.innerHTML = `
             <h2>Total Bill : $ ${amount}</h2>
-            <button id="checkOut" class="checkOut">Checkout</button>
+            <button onclick="checkOut()" id="checkOut" class="checkOut"><i class="bi bi-printer"></i> Print Bill</button>
             <button onclick="clearCart()" id="removeAll" class="removeAll">Clear Cart</button>
             `
       } else return
@@ -114,4 +114,62 @@ let clearCart = ()=>{
       generateItems()
       calculation()
       localStorage.setItem("data", JSON.stringify(basket))
+}
+
+function checkOut() {
+      let cartBody = document.getElementById('cartBody');
+      cartBody.innerHTML = '';
+      cartBody.innerHTML = `
+      <section>
+            <h2>Invoice</h2>
+
+            <table>
+                  <thead>
+                  <tr>
+                        <th>DESCRIPTION</th>
+                        <th>QUANTITY</th>
+                        <th>UNIT PRICE</th>
+                        <th>AMOUNT</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <!-- Add your data dynamically here -->
+                  <tr>
+                        <td>Item One</td>
+                        <td>1</td>
+                        <td>$10.00</td>
+                        <td>$10.00</td>
+                  </tr>
+                  <tr>
+                        <td>Item Two</td>
+                        <td>2</td>
+                        <td>$15.00</td>
+                        <td>$30.00</td>
+                  </tr>
+                  <!-- Add more items as needed -->
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                        <td colspan="3" class="total">SUBTOTAL</td>
+                        <td>$40.00</td>
+                  </tr>
+                  <tr>
+                        <td colspan="3" class="total">TAXES</td>
+                        <td>$5.00</td>
+                  </tr>
+                  <tr>
+                        <td colspan="3" class="total">SHIPPING & HANDLING</td>
+                        <td>$10.00</td>
+                  </tr>
+                  <tr>
+                        <td colspan="3" class="total">TOTAL DUE</td>
+                        <td>$55.00</td>
+                  </tr>
+                  </tfoot>
+            </table>
+
+      </section>
+      `
+      window.print();
+      
 }
