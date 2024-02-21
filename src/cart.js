@@ -115,14 +115,11 @@ let clearCart = ()=>{
       calculation()
       localStorage.setItem("data", JSON.stringify(basket))
 }
-// console.log(shopData);
-// console.log(basket);
 function checkOut() {
       let cartBody = document.getElementById('cartBody');
       cartBody.innerHTML = '';
       cartBody.innerHTML = `
       <section>
-            <h2>Invoice</h2>
 
                   <table>
                         <thead>
@@ -141,10 +138,7 @@ function checkOut() {
                               <td colspan="3" class="total">SUBTOTAL</td>
                               <td>$40.00</td>
                         </tr>
-                        
-                        
-                        
-                        </tfoot>
+                    </tfoot>
                   </table>
 
             </section>
@@ -173,6 +167,10 @@ function checkOut() {
       <td>$ ${amount}</td>
       `
       window.print();
+      localStorage.clear()
+      window.location.reload()
+      
+      
 }
 
 
