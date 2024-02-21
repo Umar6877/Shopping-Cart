@@ -13,15 +13,15 @@ let generateItems = ()=>{
                   let {id, item}= x;
                   let search = shopData.find((x)=> x.id === id) || []
                         return `
-                              <div class="products">
+                              <div class="cart-product">
                               <img src="${search.src}">
                               <div class="descrition-box">
-                                    <div class="details">
+                                    <div class="cart-detail">
                                           <h3>${search.name}</h3>
-                                          <div class="price">$ ${search.price}</div>
-                                          <span onclick="removeItem(${id})">X</span>
+                                          <div class="cart-price">$ ${search.price}</div>
+                                          <span class="cross" onclick="removeItem(${id})">X</span>
                                     </div>
-                                    <div class="qty">
+                                    <div class="cart-qty">
                                           <i onclick="decrement(${id})" class="bi bi-dash"></i>
                                           <div id="${id}" class="items">
                                           ${item}
