@@ -22,11 +22,11 @@ let generateItems = ()=>{
                                           <span onclick="removeItem(${id})">X</span>
                                     </div>
                                     <div class="qty">
-                                          <i onclick="decrement(${id})" class="bi bi-dash">-</i>
+                                          <i onclick="decrement(${id})" class="bi bi-dash"></i>
                                           <div id="${id}" class="items">
                                           ${item}
                                           </div>
-                                          <i onclick="increment(${id})" class="bi bi-plus">+</i>
+                                          <i onclick="increment(${id})" class="bi bi-plus"></i>
                                     </div>
                                     <h3>$ ${item * search.price}</h3>
                               </div>
@@ -58,8 +58,9 @@ let increment = (id)=>{
 	}else{
 		search.item += 1;
 	}
-	basket = basket.filter((x)=> x.item !== 0);    // i have to know about "filter"
 	update(selectItem.id)
+	basket = basket.filter((x)=> x.item !== 0);    // i have to know about "filter"
+      generateItems()
 	localStorage.setItem("data", JSON.stringify(basket))
 };
 let decrement = (id)=>{
@@ -72,7 +73,6 @@ let decrement = (id)=>{
 	}
 	update(selectItem.id)
 	basket = basket.filter((x)=> x.item !== 0);
-      console.log(basket);
       generateItems()
       localStorage.setItem("data", JSON.stringify(basket))
 };
@@ -88,7 +88,7 @@ let removeItem = (id)=>{
       let selectitem = id
       basket = basket.filter((x)=> x.id !== selectitem.id)
       generateItems()
-      totalAmount();
+      totalAmount()
       calculation()
       localStorage.setItem("data", JSON.stringify(basket))
 }

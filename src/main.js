@@ -16,11 +16,11 @@ let generateShop = ()=>{
                 <div class="price-qty">
                     <h3>$ ${price}</h3>
                     <div class="qty">
-                        <i onclick="decrement(${id})" class="bi bi-dash">-</i>
+                        <i onclick="decrement(${id})" class="bi bi-dash"></i>
                         <div id="${id}" class="items">
 				${search.item === undefined ? 0 : search.item}
 				</div>
-                        <i onclick="increment(${id})" class="bi bi-plus">+</i>
+                        <i onclick="increment(${id})" class="bi bi-plus"></i>
                     </div>
                 </div>
             </div>
@@ -71,3 +71,13 @@ calculation();
 if (cartAmount.innerText >= 1000) {
       cartAmount.innerHTML = "1K+"
 }
+
+function CheckFirstVisit() {
+	let isfirstVisit = localStorage.getItem('isfirstVist');
+	
+	if (!isfirstVisit) {
+		localStorage.clear();
+		localStorage.setItem('isfirstVist', true)
+	}
+}
+CheckFirstVisit();

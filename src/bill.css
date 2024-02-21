@@ -1,0 +1,43 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: black;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 12px;
+}
+.heading{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    user-select: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.total {
+    text-align: right;
+}

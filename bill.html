@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/bill.css">
+    <title>Billing Invoice</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <h2 class="heading">ZalanteWear</h2>
+        </a>
+    </header>
+
+    <section>
+        <h2>Invoice</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>DESCRIPTION</th>
+                    <th>QUANTITY</th>
+                    <th>UNIT PRICE</th>
+                    <th>AMOUNT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your data dynamically here -->
+                <tr>
+                    <td>Item One</td>
+                    <td>1</td>
+                    <td>$10.00</td>
+                    <td>$10.00</td>
+                </tr>
+                <tr>
+                    <td>Item Two</td>
+                    <td>2</td>
+                    <td>$15.00</td>
+                    <td>$30.00</td>
+                </tr>
+                <!-- Add more items as needed -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="total">SUBTOTAL</td>
+                    <td>$40.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total">TAXES</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total">SHIPPING & HANDLING</td>
+                    <td>$10.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total">TOTAL DUE</td>
+                    <td>$55.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </section>
+
+    <footer>
+        <h3>BILL TO:</h3>
+        <!-- Add BILL TO information here -->
+
+        <h3>SHIP TO:</h3>
+        <!-- Add SHIP TO information here -->
+    </footer>
+  <script src=""></script>
+</body>
+
+</html>
