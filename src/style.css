@@ -18,6 +18,12 @@ body{
       justify-content: space-between;
 
 }
+.navbar > a{
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      user-select: none;
+}
 .cart{
       width:50px;
       height: 50px;
@@ -58,6 +64,7 @@ main{
 .product{
       width: 220px;
       border: 2px solid black;
+      border-radius: 5px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -69,6 +76,7 @@ main{
 .product img{
       width: 220px;
       height: auto;
+      user-select: none;
 }
 .price-qty{
       display: flex;
@@ -97,4 +105,79 @@ main{
       justify-content: center;
       align-items: center;
       user-select: none;
+}
+.text-center{
+      margin-top: 15px;
+      text-align: center;
+}
+.text-center > h2 {
+      user-select: none;
+}
+.Homebtn,
+.checkOut,
+.removeAll{
+      padding: 7px;
+      border: none;
+      border-radius: 3px;
+      color: white;
+      background-color: #212529;
+      margin-top: 10px;
+      cursor: pointer;
+      user-select: none;
+}
+.checkOut{
+      background-color: green;
+}
+.removeAll{
+      background-color: red;
+}
+.shopping-cart{
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+      gap: 20px;
+}
+.products{
+      width: 380px;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      border: 2.5px solid #000000;
+      border-radius: 5px;
+}
+.products img{
+      width: 100px;
+      object-fit: cover;
+}
+.details{
+      width: 270px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 10px;
+      padding-top: 10px;
+}
+.details .price{
+      background-color: #000000;
+      color: #fff;
+      width: fit-content;
+      height: fit-content;
+      padding: 4px;
+      border-radius: 5px;
+      font-weight: 700;
+}
+.details span{
+      margin-left: 60px;
+      color: red;
+      cursor: pointer;
+      user-select: none;
+      float: right;
+}
+.descrition-box > h3{
+      padding-left: 10px;
+
 }

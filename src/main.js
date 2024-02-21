@@ -1,35 +1,12 @@
 let shop = document.getElementById('shop');
 let input = document.getElementsByClassName('input');
 let cartAmount = document.getElementById('cartAmount');
-let shopData = [
-	{     id: "sdsdsd",
-		src: 'images/img-1.jpg',
-		name:'Casual Shirts',
-		description:'Lorem, ipsum dolor sit amet <br> consectetur adipisicing elit.',
-		price:'45',},
-	{     id: 'dsdfdf',
-		src: 'images/img-2.jpg',
-		name:'Office Shirts',
-		description:'Lorem, ipsum dolor sit amet <br> consectetur adipisicing elit.',
-		price:'100',},
-	{   id: 'sdsds',
-		src: 'images/img-3.jpg',
-		name:'T Shirts',
-		description:'Lorem, ipsum dolor sit amet <br> consectetur adipisicing elit.',
-		price:'25',},
-	{   id: 'dssdsdsdf',
-		src: 'images/img-4.jpg',
-		name:'Mens Suit',
-		description:'Lorem, ipsum dolor sit amet <br> consectetur adipisicing elit.',
-		price:'300',},
-	]
+
 let basket = JSON.parse(localStorage.getItem("data")) || []
-let d = JSON.parse(localStorage.getItem("data"));
 let generateShop = ()=>{
 	return shop.innerHTML= shopData.map((x)=>{
 	let {id,src,name,description,price}= x;
-      let search = basket.find((x)=> x.id === id);
-	console.log(search);
+	let search = basket.find((x)=> x.id === id) || []
 	return`
 	<div id="" class="product">
             <img src="${src}" alt="">
@@ -39,11 +16,11 @@ let generateShop = ()=>{
                 <div class="price-qty">
                     <h3>$ ${price}</h3>
                     <div class="qty">
-                        <i onclick="decrement(${id})" class="bi bi-dash"></i>
+                        <i onclick="decrement(${id})" class="bi bi-dash">-</i>
                         <div id="${id}" class="items">
-				
-                        </div>
-                        <i onclick="increment(${id})" class="bi bi-plus"></i>
+				${search.item === undefined ? 0 : search.item}
+				</div>
+                        <i onclick="increment(${id})" class="bi bi-plus">+</i>
                     </div>
                 </div>
             </div>
@@ -64,17 +41,21 @@ let increment = (id)=>{
 	}else{
 		search.item += 1;
 	}
+	basket = basket.filter((x)=> x.item !== 0);    // i have to know about "filter"
 	update(selectItem.id)
-
+	localStorage.setItem("data", JSON.stringify(basket))
 };
 let decrement = (id)=>{
 	let selectItem = id;
 	let search = basket.find((x)=> x.id === selectItem.id);
-	if (search.item === 0) return 
+	if (search === undefined) return;
+	if (search.item === 0 || undefined) return;
 	else{
 		search.item -= 1
 	}
 	update(selectItem.id)
+	basket = basket.filter((x)=> x.item !== 0);
+    localStorage.setItem("data", JSON.stringify(basket))
 };
 let update = (id)=>{
 	let search = basket.find((x)=> x.id === id)
@@ -82,11 +63,11 @@ let update = (id)=>{
       calculation();
       localStorage.setItem("data", JSON.stringify(basket))
 }; 
-
 let calculation = ()=>{
       let cartAmount = document.getElementById('cartAmount');
       cartAmount.innerHTML = (basket.map((x)=> x.item).reduce((x,y)=> x+y,0));
 }
+calculation();
 if (cartAmount.innerText >= 1000) {
       cartAmount.innerHTML = "1K+"
 }
