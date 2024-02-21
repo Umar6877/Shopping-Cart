@@ -115,7 +115,8 @@ let clearCart = ()=>{
       calculation()
       localStorage.setItem("data", JSON.stringify(basket))
 }
-
+// console.log(shopData);
+// console.log(basket);
 function checkOut() {
       let cartBody = document.getElementById('cartBody');
       cartBody.innerHTML = '';
@@ -123,53 +124,55 @@ function checkOut() {
       <section>
             <h2>Invoice</h2>
 
-            <table>
-                  <thead>
-                  <tr>
-                        <th>DESCRIPTION</th>
-                        <th>QUANTITY</th>
-                        <th>UNIT PRICE</th>
-                        <th>AMOUNT</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <!-- Add your data dynamically here -->
-                  <tr>
-                        <td>Item One</td>
-                        <td>1</td>
-                        <td>$10.00</td>
-                        <td>$10.00</td>
-                  </tr>
-                  <tr>
-                        <td>Item Two</td>
-                        <td>2</td>
-                        <td>$15.00</td>
-                        <td>$30.00</td>
-                  </tr>
-                  <!-- Add more items as needed -->
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                        <td colspan="3" class="total">SUBTOTAL</td>
-                        <td>$40.00</td>
-                  </tr>
-                  <tr>
-                        <td colspan="3" class="total">TAXES</td>
-                        <td>$5.00</td>
-                  </tr>
-                  <tr>
-                        <td colspan="3" class="total">SHIPPING & HANDLING</td>
-                        <td>$10.00</td>
-                  </tr>
-                  <tr>
-                        <td colspan="3" class="total">TOTAL DUE</td>
-                        <td>$55.00</td>
-                  </tr>
-                  </tfoot>
-            </table>
+                  <table>
+                        <thead>
+                        <tr>
+                              <th>DESCRIPTION</th>
+                              <th>QUANTITY</th>
+                              <th>UNIT PRICE</th>
+                              <th>AMOUNT</th>
+                        </tr>
+                        </thead>
+                        <tbody id="inputItems">
+                        
+                        </tbody>
+                        <tfoot>
+                        <tr id="subTotal">
+                              <td colspan="3" class="total">SUBTOTAL</td>
+                              <td>$40.00</td>
+                        </tr>
+                        
+                        
+                        
+                        </tfoot>
+                  </table>
 
-      </section>
+            </section>
+            `;
+      let inputItems = document.getElementById('inputItems');
+      inputItems.innerHTML = basket.map((x)=>{
+            let {id,item} = x;
+            let search = shopData.find((x)=> x.id === id);
+            return `
+                  <tr >
+                        <td>${search.name}</td>
+                        <td>${item}</td>
+                        <td>$ ${search.price}</td>
+                        <td>$ ${item*search.price}</td>
+                  </tr>
+            `
+      }).join("")
+      let subTotal = document.getElementById('subTotal');
+      let amount = basket.map((x)=>{
+                  let {id,item} = x
+                  let search = shopData.find((x)=> x.id === id) || []
+                  return search.price * item
+            }).reduce((x,y)=> x+y)
+      subTotal.innerHTML = `
+      <td colspan="3" class="total">Total Due</td>
+      <td>$ ${amount}</td>
       `
       window.print();
-      
 }
+
+
