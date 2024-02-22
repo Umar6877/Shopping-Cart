@@ -130,7 +130,8 @@ main{
 }
 .Homebtn,
 .checkOut,
-.removeAll{
+.removeAll,
+.Back-to-home{
       padding: 7px;
       border: none;
       border-radius: 3px;
@@ -248,6 +249,6 @@ th, td {
 }
 .Back-to-home{
       position: absolute;
-      top: 38px;
-      left: 50px;
+      top: 20px;
+      left: 30px;
 }

@@ -124,7 +124,7 @@ function checkOut() {
                   <table>
                         <thead>
                         <tr>
-                              <th>S. Number</th>
+                              <th>S.N0</th>
                               <th>DESCRIPTION</th>
                               <th>QUANTITY</th>
                               <th>UNIT PRICE</th>
@@ -167,9 +167,18 @@ function checkOut() {
       <td>$ ${amount}</td>
       `
       window.print();      
-      // localStorage.clear()
-      // window.location.reload()
       
+      let anchor = document.createElement('a');
+      cartBody.appendChild(anchor);
+      anchor.setAttribute('href', 'index.html')
+
+      let BackToHome = document.createElement('button');
+      anchor.appendChild(BackToHome)
+      BackToHome.classList.add('Back-to-home')
+      BackToHome.innerHTML = "Back to Home"
+      localStorage.clear()
+      
+
       
 }
 let NumberArray = [];
@@ -177,4 +186,3 @@ for (let i = 1; i <= basket.length; i++) {
       NumberArray.push(i);
       
 }
-let Serial = document.getElementById('Serial');
