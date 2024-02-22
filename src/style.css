@@ -240,7 +240,9 @@ th, td {
     padding: 10px;
     text-align: left;
 }
-
+.subTotal{
+      border: 2px solid red;
+}
 .total {
     text-align: right;
 }

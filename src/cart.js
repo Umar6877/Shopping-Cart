@@ -124,6 +124,7 @@ function checkOut() {
                   <table>
                         <thead>
                         <tr>
+                              <th>S. Number</th>
                               <th>DESCRIPTION</th>
                               <th>QUANTITY</th>
                               <th>UNIT PRICE</th>
@@ -134,11 +135,9 @@ function checkOut() {
                         
                         </tbody>
                         <tfoot>
-                        <tr id="subTotal">
-                              <td colspan="3" class="total">SUBTOTAL</td>
-                              <td>$40.00</td>
+                        <tr  class="subTotal" id="subTotal">
+                              
                         </tr>
-                    </tfoot>
                   </table>
 
             </section>
@@ -148,7 +147,8 @@ function checkOut() {
             let {id,item} = x;
             let search = shopData.find((x)=> x.id === id);
             return `
-                  <tr >
+                  <tr>
+                        <td id="Serial">${NumberArray.shift()}</td>
                         <td>${search.name}</td>
                         <td>${item}</td>
                         <td>$ ${search.price}</td>
@@ -158,19 +158,23 @@ function checkOut() {
       }).join("")
       let subTotal = document.getElementById('subTotal');
       let amount = basket.map((x)=>{
-                  let {id,item} = x
+                  let {id,item} = x;
                   let search = shopData.find((x)=> x.id === id) || []
                   return search.price * item
             }).reduce((x,y)=> x+y)
       subTotal.innerHTML = `
-      <td colspan="3" class="total">Total Due</td>
+      <td colspan="3" class="total">Total Bill (All Items)</td>
       <td>$ ${amount}</td>
       `
-      window.print();
-      localStorage.clear()
-      window.location.reload()
+      window.print();      
+      // localStorage.clear()
+      // window.location.reload()
       
       
 }
-
-
+let NumberArray = [];
+for (let i = 1; i <= basket.length; i++) {
+      NumberArray.push(i);
+      
+}
+let Serial = document.getElementById('Serial');
