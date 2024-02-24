@@ -103,7 +103,7 @@ let shopData = [
 		id: 'sdsderehgdff',
 		src: 'images/product2-5.jpg',
 		name:'Mens Upper',
-		description:'Instant warmth for winter days...',
+		description:'Apparel for mens upper body clothing styles.',
 		price:'35',},
 	{   
 	    Serial: 19,

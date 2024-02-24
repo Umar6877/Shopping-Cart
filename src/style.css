@@ -90,14 +90,14 @@ main{
       max-width: 208px;
       max-height: 40px;
       overflow: hidden;
-      font-weight: 500;
+      font-weight: 600;
 }
 .price-qty{
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-top: 5px;
-      padding: 5px 0px;
+      padding: 5px 10px;
 }
 .price-qty div{
       font-size: 17px;
@@ -112,6 +112,7 @@ main{
       padding: 2px;
       cursor: pointer;
       user-select: none;
+      font-size: 25px;
 }
 .items{
       width: 25px;
